@@ -97,6 +97,7 @@ TEST_F(CliTest, help)
         cmdl({"mcdevops1", flag});
         ASSERT_EQ(cli(argc, argv), EXIT_SUCCESS);
         ASSERT_NE(stdout.str().find("mcdevops1"), string::npos);
+        // Assert arguments are not equal so long as "mcdevops1" is found
     }
     return;
 }
