@@ -1,0 +1,30 @@
+# Ignore C++ build artifacts.
+
+*.o
+*.so
+*.exe
+*.dll
+
+# Ignore directories containing build and doc files (auto-generated)
+
+build
+doc
+
+# Ignore Vagrant runtime files.
+
+.vagrant/
+
+
+# Ignore settings for various IDEs.
+
+.idea/
+.project/
+nbproject/
+
+# Ignore OS metadata files.
+
+.DS_Store
+
+# Ignore GoogleTest files
+
+test/lib/gtest/*
