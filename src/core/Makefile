@@ -1,8 +1,16 @@
+CChen:=mpicc
+#CCmac:=/usr/local/bin/gcc-7
+CCmac:=g++
+CFLAGShen:=-Wall -lgsl -O3
+CFLAGSmac:=-Wall -lgsl -O3
+EXE:=core_check.exe
+INCSmac:=/usr/local/include
+LIBSmac:=/usr/local/lib
 
 mac : 
-	g++ item.cpp -c
-	g++ core_check.cpp -c
-	g++ item.o core_check.o -o core_check.exe
+	${CCmac} -I${INCSmac} -L${LIBSmac} ${CFLAGSmac} item.cpp -c
+	${CCmac} -I${INCSmac} -L${LIBSmac} ${CFLAGSmac} core_check.cpp -c
+	${CCmac} -I${INCSmac} -L${LIBSmac} ${CFLAGSmac} item.o core_check.o -o ${EXE}
 
 clean :
-	rm *.o *.exe
+	rm -f *.o *.exe
