@@ -1,3 +1,5 @@
+#include <vector>
+
 #ifndef MCDEVOPS1_ITEM_H
 #define MCDEVOPS1_ITEM_H
 
@@ -40,6 +42,10 @@ private:
    
 };
 
+
+typedef std::vector<Item*> ItemList;
+enum ItemFactoryMode {rndm,lattice};
+
 class ItemFactory {
 public:
    ItemFactory();
@@ -47,14 +53,23 @@ public:
    ItemFactory(const ItemType&);
    ~ItemFactory();
    void setType(ItemType *const);
+   void setMode(const ItemFactoryMode);
    Item * create();
+   ItemList * create(const int);
 
 private:
    ItemType *itemType;
-
+   ItemFactoryMode mode;
 };
 
+/*class ItemList {
+public:
+   ItemList();
+   ~ItemList();
+   std::vector<Item*> list;
 
+private:
+};*/
 
 class PointParticle : public Item {
 public:

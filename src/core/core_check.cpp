@@ -3,7 +3,6 @@
 #include <iostream>
 #include "item.h"
 
-//Item::itemCount = 7;
 
 int main(int argc, char* argv[])
 {
@@ -16,10 +15,17 @@ int main(int argc, char* argv[])
 
    ItemFactory *itFact1 = new ItemFactory();
    Item *item3 = itFact1->create();
-
+   ItemList *l = itFact1->create(10);
+   
    delete itFact1;
 
    delete item3;
-  
+   
+   for (int ii = 0; ii < 10; ii++) {
+      delete (*l)[ii];
+   }
+   
+   delete l;
+   
 }
 

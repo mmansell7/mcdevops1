@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "item.h"
-
+#include <vector>
 
 ItemPosition::ItemPosition() {
    std::cout << "ItemPosition object has been created." << std::endl;
@@ -84,4 +84,18 @@ Item * ItemFactory::create() {
    return pitem;
 }
 
+ItemList * ItemFactory::create(const int n) {
+   //std::vector<Item*> *l(n,NULL);
+   ItemList *l = new ItemList(n,NULL);
+   for (int ii = 0; ii < n; ii++) {
+      std::cout << "Creating item # " << ii << " in ItemList object." << std::endl;
+      (*l)[ii] = this->create();
+   }
+   std::cout << "l within create func is " << l << std::endl;
+   return l;
+}
+
+void ItemFactory::setMode(const ItemFactoryMode m) {
+   mode = m;
+}
 
